@@ -5,27 +5,25 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 
 use App\Models\TestModel;
+use App\Models\CorcelModel;
+use Corcel\Model\Menu;
 
 class Display extends BaseController
 {
     protected $testModel;
-    protected $db;
+    protected $corcel;
     public function __construct(){
         $this->testModel = new TestModel();
-        $params = [
-            'database'  => 'stametcilacap',
-            'username'  => 'stametcilacap',
-            'password'  => 'stametcilacap',
-            'prefix'    => 'wp_' // default prefix is 'wp_', you can change to your own prefix
-        ];
-        \Corcel\Database::connect($params);
+        $this->corcel = new CorcelModel();
     }
 
     public function index()
     {
         $be_url = $this->testModel->getBeUrl();
-        $post = \Corcel\Model\Post::status('publish')->type('post')->get();
-        $data = ['be_url'=> $be_url,'post'=>$post];
+        $post = $this->corcel->getAllPost();
+        $menu = Menu::slug('Main')->first();
+
+        $data = ['be_url'=> $be_url,'post'=>$post,'menus'=>$menu];
         return view('display_data', $data);
     }
 }
