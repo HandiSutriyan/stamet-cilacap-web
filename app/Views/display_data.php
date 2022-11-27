@@ -8,5 +8,12 @@
 <body>
     <h1>Display data</h1>
     <p>Tautan aplikasi BE : <?=$be_url['option_value']?></p>
+    <h1>Post terbaru</h1>
+    <?php
+    foreach($post as $p):
+    ?>
+    <h2><?=$p->post_title?></h2>
+    <p><?=$p->post_content?></p>
+    <?php endforeach; ?>
 </body>
 </html>
