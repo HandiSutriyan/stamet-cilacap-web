@@ -35,7 +35,7 @@
                             <img src="<?= $pf->thumbnail != "" ? $pf->thumbnail:base_url('assets/img/no-image.png') ?>" alt="twbs" width="110" height="70">
                             <div class="d-flex gap-2 w-100 justify-content-between">
                               <div>
-                                <h6 class="mb-0"><?= $pf->title ?></h6>
+                                <h6 class="mb-0 post-title"><?= $pf->title ?></h6>
                                 <small class="opacity-50 text-nowrap"><?= date_format(date_create(explode(" ",$pf->updated_at)[0]),"j M Y"); ?></small>
                               </div>
                             </div>
@@ -52,7 +52,7 @@
                           <a href="<?= base_url('artikel/'.$af->slug) ?>" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
                             <div class="d-flex gap-2 w-100 justify-content-between">
                               <div>
-                                <h6 class="mb-0"><?= $af->title ?></h6>
+                                <h6 class="mb-0 post-title"><?= $af->title ?></h6>
                                 <small class="opacity-50 text-nowrap"><?= date_format(date_create(explode(" ",$af->updated_at)[0]),"j M Y"); ?></small>
                               </div>
                             </div>

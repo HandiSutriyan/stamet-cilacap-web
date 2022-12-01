@@ -94,7 +94,7 @@
                           </div>
                           <div class="peringatan-dini-home-bg col-md-10">
                               <div class="owl-peringatan-dini">
-                                <strong><?= $perdin->post_title ?></strong>
+                                <strong class="perdin-title"><?= $perdin->post_title ?></strong>
                                 <span class="post-content"><?=$perdin->post_excerpt?></span>
                                 <a href="<?=base_url('post/'.$perdin->post_name)?>" class='moree'> <i> Selengkapnya&rarr; </i></a>
                               </div>
@@ -133,7 +133,7 @@
               <a href="<?= base_url('post/'.$ft->slug) ?>"> 
                 <img src="<?= $ft->thumbnail == null ? base_url('assets/img/no-image.png'):$ft->thumbnail ?>" class="d-block w-100 tales" alt="berita1">
                 <div class="carousel-caption d-none d-md-block">
-                  <h5><b><?= $ft->post_title ?></b></h5>
+                  <h5 class="post-title"><b><?= $ft->post_title ?></b></h5>
                   <span class="post-content"><?= $ft->post_excerpt ?></span> 
                 </div>
               </a>
@@ -165,7 +165,7 @@
           <div class="col">
             <div class="well">
               <a href="<?=base_url('artikel/'.$ar->slug)?>">
-              <h6 class="mb-1"><b><?=$ar->post_title?></b></h6>
+              <h6 class="mb-1 post-title"><b><?=$ar->post_title?></b></h6>
               <small class="opacity-50 text-nowrap"><i><?= date_format(date_create(explode(" ",$ar->updated_at)[0]),"j F Y"); ?></i></small>
               </a>
               <p class="post-content"><?=$ar->post_excerpt?></p>
@@ -198,7 +198,7 @@
           <div class="col-sm-9">
             <div class="well">
               <a href="<?=base_url('post/'.$p->slug)?>">
-              <h6><b><?=$p->post_title?></b></h6>
+              <h6 class="post-title"><b><?=$p->post_title?></b></h6>
               <small class="opacity-50 text-nowrap"><i><?= date_format(date_create(explode(" ",$p->updated_at)[0]),"j F Y"); ?></i></small>
               </a>
               <p class="post-content"><?=$p->post_excerpt?></p>

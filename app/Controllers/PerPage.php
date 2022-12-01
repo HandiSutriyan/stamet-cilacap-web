@@ -23,6 +23,11 @@ class PerPage extends BaseController
         }
     }
     public function forecast(){
-        return view('pages/webpages/detail-forecast');
+        $param = $this->request->getGet('detail');
+        if($param && $param != ""){
+            return view('pages/webpages/detail-forecast');
+        }else{
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
     }
 }

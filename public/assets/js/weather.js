@@ -95,8 +95,6 @@ function getDetail() {
     if (tabelData.innerHTML == "") {
       tabelData.innerHTML = `<td colspan="7"><i>Maaf tidak ada data untuk "${param}"</i></td>`;
     }
-  } else {
-    window.location.href = "/error";
   }
 }
 

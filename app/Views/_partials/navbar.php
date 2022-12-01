@@ -9,7 +9,7 @@
   <nav class="navbar bg-light">
   <div class="container d-flex justify-content-center justify-content-sm-between">
     <div class="container-sm d-flex align-items-center">
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="<?= base_url() ?>">
         <img src="<?= base_url('assets/img/bg_header2.png') ?>" alt="Logo" width="100%" height="100" class="d-inline-block align-text-top banner">
       </a>
     </div>

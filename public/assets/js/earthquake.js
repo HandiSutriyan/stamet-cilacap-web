@@ -25,7 +25,7 @@ function calculateDistance(loc) {
             Math.sin(difflon / 2)
       )
     );
-  return distance.toFixed(1);
+  return distance.toFixed(2);
 }
 
 function isStorageExist() {
@@ -82,8 +82,8 @@ function renderQuakeCard(quakeData = EWS_DATA) {
                   <ul class="list-unstyled">
                   <li><span class="ic lokasi"></span>${
                     data.Wilayah
-                  } (${calculateDistance(
-    data.Coordinates
+                  } (${Math.round(
+    calculateDistance(data.Coordinates)
   )} km dari Kab. Cilacap)</li>
                   <li><span class="ic dirasakan"></span>Dirasakan MMI: ${
                     data.Dirasakan
