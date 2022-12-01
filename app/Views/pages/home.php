@@ -59,7 +59,7 @@
       <div class="container" >
         <main class="container border">
           <div class="row" style="padding: 10px;">
-                  <div class="col-lg-7 col-md-12 mb-3">
+                  <div class="col-lg-8 col-md-12 mb-3">
                     <div class="section-title">
                       <h2>Prakiraan Cuaca Kecamatan Di Kabupaten Cilacap</h2>
                     </div>
@@ -78,7 +78,7 @@
                       </div>
                     </div>
                     <!--------gempaaa-------------->
-                    <div class="col-lg-5 col-md-12" style="text-align: justify;">
+                    <div class="col-lg-4 col-md-12" style="text-align: justify;">
                       <div class="section-title">
                         <h2>Informasi Gempa Bumi Terkini</h2>
                       </div>
@@ -162,21 +162,7 @@
         <!----artikel 1-->
         <?php foreach($artikel as $ar): ?>
         <div class="row">
-          <div class="col-sm-3">
-            <div class="well">
-            <?php if($ar->thumbnail): 
-            ?>
-            <img src="<?=$ar->thumbnail?>" class="thumbnail" width="55" alt="Avatar">
-            <?php
-            else:
-            ?>
-            <img src="<?= base_url('assets/img/no-image.png') ?>" class="thumbnail" height="auto" width="55" alt="Avatar">
-            <?php
-            endif;
-            ?>
-            </div>
-          </div>
-          <div class="col-sm-9">
+          <div class="col">
             <div class="well">
               <a href="<?=base_url('artikel/'.$ar->slug)?>">
               <h6 class="mb-1"><b><?=$ar->post_title?></b></h6>

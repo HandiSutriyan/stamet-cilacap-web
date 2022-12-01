@@ -154,8 +154,4 @@ function loadData() {
   }
 }
 
-if (isStorageExist()) {
-  loadData();
-} else {
-  getForecast();
-}
+loadData();

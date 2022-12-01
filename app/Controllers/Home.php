@@ -17,7 +17,7 @@ class Home extends BaseController
     {
         $post = $this->corcel->getAllPost('berita');
         $artikel = $this->corcel->getAllPost('artikel');
-        $featured = $this->corcel->getAllPost();
+        $featured = $post;
         //dd($featured[0]->author_id);
         $perdin = $this->corcel->getPerdin();
         $menu = Menu::slug('Main')->first();

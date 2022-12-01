@@ -50,7 +50,6 @@
                     <div class="list-group w-auto">
                       <?php foreach($artikelFeed as $af): ?>
                           <a href="<?= base_url('artikel/'.$af->slug) ?>" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                          <img src="<?= $af->thumbnail != "" ? $pf->thumbnail:base_url('assets/img/no-image.png') ?>" alt="twbs" width="110" height="70">
                             <div class="d-flex gap-2 w-100 justify-content-between">
                               <div>
                                 <h6 class="mb-0"><?= $af->title ?></h6>
