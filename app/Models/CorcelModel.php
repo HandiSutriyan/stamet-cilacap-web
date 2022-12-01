@@ -16,8 +16,16 @@ class CorcelModel extends Model
         \Corcel\Database::connect($params);
     }
 
-    public function getAllPost(){
-        return \Corcel\Model\Post::published()->type('post')->get();
+    public function getAllPost($category=null){
+        if($category != null){
+            return \Corcel\Model\Post::taxonomy('category', $category)->published()->type('post')->take(3)->get();
+        }else {
+            return \Corcel\Model\Post::published()->type('post')->take(4)->get();
+        }
+    }
+
+    public function getPerdin(){
+        return \Corcel\Model\Post::taxonomy('category', 'perdin')->published()->type('post')->newest()->first();
     }
 
     public function getPost($slug){
@@ -27,4 +35,9 @@ class CorcelModel extends Model
     public function getMenu(){
         return \Corcel\Model\Menu::slug('Main')->first();
     }
+
+    public function search($keyword){
+        
+    }
 }
+
