@@ -18,13 +18,13 @@ class Home extends BaseController
         $post = $this->corcel->getAllPost('berita');
         $artikel = $this->corcel->getAllPost('artikel');
         $featured = $post;
-        //dd($featured[0]->author_id);
+        //dd($featured);
         $perdin = $this->corcel->getPerdin();
         $menu = Menu::slug('Main')->first();
         $data = [
-            'post'=>$post->reverse(),
+            'post'=>$post,
             'artikel'=>$artikel->reverse(),
-            'featured' => $featured->reverse(),
+            'featured' => $featured,
             'perdin'=>$perdin,
             'menus'=>$menu,
         ];

@@ -163,7 +163,7 @@
         <?php foreach($artikel as $ar): ?>
         <div class="row">
           <div class="col">
-            <div class="well">
+            <div class="well mb-3">
               <a href="<?=base_url('artikel/'.$ar->slug)?>">
               <h6 class="mb-1 post-title"><b><?=$ar->post_title?></b></h6>
               <small class="opacity-50 text-nowrap"><i><?= date_format(date_create(explode(" ",$ar->updated_at)[0]),"j F Y"); ?></i></small>
@@ -183,20 +183,11 @@
         <div class="row">
           <div class="col-sm-3">
             <div class="well">
-            <?php if($p->thumbnail): 
-            ?>
-            <img src="<?=$p->thumbnail?>" class="thumbnail" width="55" alt="Avatar">
-            <?php
-            else:
-            ?>
-            <img src="<?= base_url('assets/img/no-image.png') ?>" class="thumbnail" height="auto" width="55" alt="Avatar">
-            <?php
-            endif;
-            ?>
+            <img src="<?=$p->thumbnail=="" ? base_url('assets/img/no-image.png'):$p->thumbnail ?>" class="thumbnail" width="55" alt="Avatar">
             </div>
           </div>
           <div class="col-sm-9">
-            <div class="well">
+            <div class="well mb-3">
               <a href="<?=base_url('post/'.$p->slug)?>">
               <h6 class="post-title"><b><?=$p->post_title?></b></h6>
               <small class="opacity-50 text-nowrap"><i><?= date_format(date_create(explode(" ",$p->updated_at)[0]),"j F Y"); ?></i></small>

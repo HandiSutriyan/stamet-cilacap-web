@@ -23,7 +23,7 @@ class PerPost extends BaseController
         $author = User::find($postData->post_author);
         //dd($postData->updated_at->date);
         if($postData){
-            $data = ['postdata'=> $postData,'post_author'=>$author,'postFeed'=>$postFeed->reverse(), 'artikelFeed'=>$artikelFeed->reverse()];
+            $data = ['postdata'=> $postData,'post_author'=>$author,'postFeed'=>$postFeed, 'artikelFeed'=>$artikelFeed];
             return view('pages/posts/post',$data);
         }else{
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();

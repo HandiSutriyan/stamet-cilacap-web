@@ -18,9 +18,9 @@ class CorcelModel extends Model
 
     public function getAllPost($category=null){
         if($category != null){
-            return \Corcel\Model\Post::taxonomy('category', $category)->published()->type('post')->take(3)->get();
+            return \Corcel\Model\Post::taxonomy('category', $category)->published()->type('post')->newest()->take(3)->get();
         }else {
-            return \Corcel\Model\Post::published()->type('post')->take(4)->get();
+            return \Corcel\Model\Post::published()->type('post')->newest()->take(4)->get();
         }
     }
 
