@@ -1,5 +1,8 @@
+const STORAGE_KEY_EWS = "EWS-DATA";
 const EARTHQUAKE_URL = "https://data.bmkg.go.id/DataMKG/TEWS/autogempa.json";
 //const EARTHQUAKE_URL = "../dummy-data/gempa.json";
+
+let EWS_DATA = [];
 
 function calculateDistance(loc) {
   const cilacapLoc = [-7.71666667, 109.000001];
@@ -25,7 +28,25 @@ function calculateDistance(loc) {
   return distance.toFixed(1);
 }
 
-function renderQuakeCard(quakeData) {
+function isStorageExist() {
+  if (typeof Storage === undefined) {
+    alert("Browser ini tidak mendukung Local Storage");
+    return false;
+  }
+  return true;
+}
+
+function saveData() {
+  if (isStorageExist()) {
+    if (sessionStorage.getItem(STORAGE_KEY_EWS)) {
+      sessionStorage.removeItem(STORAGE_KEY_EWS);
+    }
+    let dataParsed = JSON.stringify(EWS_DATA);
+    sessionStorage.setItem(STORAGE_KEY_EWS, dataParsed);
+  }
+}
+
+function renderQuakeCard(quakeData = EWS_DATA) {
   const data = quakeData.Infogempa.gempa;
   const CardLayout = document.querySelector(".card-gempa");
   const html = `
@@ -82,14 +103,30 @@ function getQuakeData() {
   })
     .then((response) => response.json())
     .then((JsonResp) => {
-      renderQuakeCard(JsonResp);
+      EWS_DATA = JsonResp;
+      saveData();
+      renderQuakeCard();
     })
     .catch((err) => {
       console.log("Failed load earthquake data", err);
     });
 }
 
+function loadQuakeData() {
+  const stringData = sessionStorage.getItem(STORAGE_KEY_EWS);
+  let data = JSON.parse(stringData);
+  //Data dari local storage disimpan pada array
+  if (data != null) {
+    EWS_DATA = data;
+    renderQuakeCard();
+  } else {
+    getQuakeData();
+  }
+}
+
 function updateGempa() {
   getQuakeData();
   setTimeout(calibrate, 15 * 60000);
 }
+
+loadQuakeData();
