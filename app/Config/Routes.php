@@ -41,6 +41,7 @@ $routes->get('/post/(:any)', 'PerPost::index/$1');
 $routes->get('/page/(:any)', 'PerPage::index/$1');
 $routes->get('/artikel/(:any)', 'PerPost::index/$1');
 $routes->get('/forecast', 'PerPage::forecast');
+$routes->get('/error', 'Error::index');
 $routes->post('/search', 'Search::index');
 
 /*

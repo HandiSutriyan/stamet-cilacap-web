@@ -69,7 +69,7 @@ function getDetail() {
   const txtKecamatan = document.getElementById("kec-txt");
   txtKecamatan.innerText = param;
   tabelData.innerHTML = "";
-  if (param) {
+  if (param && param != "") {
     fdata.forEach((item) => {
       if (item.kecamatan == param) {
         item.cuaca.forEach((dcuaca) => {
@@ -92,6 +92,11 @@ function getDetail() {
         });
       }
     });
+    if (tabelData.innerHTML == "") {
+      tabelData.innerHTML = `<td colspan="7"><i>Maaf tidak ada data untuk "${param}"</i></td>`;
+    }
+  } else {
+    window.location.href = "/error";
   }
 }
 

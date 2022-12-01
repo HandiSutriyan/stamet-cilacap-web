@@ -16,7 +16,11 @@ class PerPage extends BaseController
     public function index($slug){
         $page = Page::published()->slug($slug)->first();
         $data = ['page'=>$page];
-        return view('pages/webpages/page',$data);
+        if($page){
+            return view('pages/webpages/page',$data);
+        }else {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
     }
     public function forecast(){
         return view('pages/webpages/detail-forecast');

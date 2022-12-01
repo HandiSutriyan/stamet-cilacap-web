@@ -29,7 +29,7 @@
                             </thead>
                             <tbody class="text-center" id="fdetail">
                               <tr>
-                                <td colspan="6"><i>Memuat data ...</i></td>
+                                <td colspan="7"><i>Memuat data ...</i></td>
                               </tr>
                             </tbody>
                           </table>
