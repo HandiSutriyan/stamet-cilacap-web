@@ -20,10 +20,14 @@ class Search extends BaseController
     public function index()
     {
         $keyword =  $this->request->getVar('keyword');
-        $result = $this->custom_post->search($keyword);
-        $pager = $this->custom_post->pager;
-        $data = ['results'=>array_reverse($result),'keyword'=>$keyword,'pager'=>$pager];
-        //dd($data['results']);
-        return view('pages/webpages/search-result',$data);
+        if($keyword != null){
+            $result = $this->custom_post->search($keyword);
+            $pager = $this->custom_post->pager;
+            $data = ['results'=>array_reverse($result),'keyword'=>$keyword,'pager'=>$pager];
+            //dd($data['results']);
+            return view('pages/webpages/search-result',$data);
+        } else{
+            return redirect()->to('/');
+        }
     }
 }

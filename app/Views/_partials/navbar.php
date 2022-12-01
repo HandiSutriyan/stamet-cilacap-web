@@ -46,8 +46,8 @@
       <div class="position-relative">
         <form class="d-flex" role="search" method ="post" action="<?= base_url('search') ?>">
         <?= csrf_field() ?>
-          <input class="form-control me-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <input class="form-control me-2" name="keyword" type="search" placeholder="Cari" aria-label="Search" required>
+          <button class="btn btn-outline-success" type="submit">Cari</button>
         </form>
       </div>
       <!--- Searchbar-->
