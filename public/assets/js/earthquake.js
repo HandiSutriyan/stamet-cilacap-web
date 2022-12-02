@@ -36,8 +36,8 @@ function isStorageExist() {
   return true;
 }
 
-function saveData() {
-  if (isStorageExist()) {
+function saveDataGempa() {
+  if (isStorageExist() && EWS_DATA != "") {
     if (sessionStorage.getItem(STORAGE_KEY_EWS)) {
       sessionStorage.removeItem(STORAGE_KEY_EWS);
     }
@@ -104,7 +104,7 @@ function getQuakeData() {
     .then((response) => response.json())
     .then((JsonResp) => {
       EWS_DATA = JsonResp;
-      saveData();
+      saveDataGempa();
       renderQuakeCard();
     })
     .catch((err) => {

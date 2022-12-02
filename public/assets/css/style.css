@@ -617,6 +617,21 @@ h6 {
   background: #6ec083;
 }
 
+.carousel-filter {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.3;
+  background: rgb(5, 5, 5);
+  background: linear-gradient(
+    0deg,
+    rgba(5, 5, 5, 0.9906162294019171) 5%,
+    rgba(251, 251, 251, 0) 77%
+  );
+}
+
 @media (max-width: 992px) {
   #hero {
     height: 100vh;

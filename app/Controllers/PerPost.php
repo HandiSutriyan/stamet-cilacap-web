@@ -20,9 +20,9 @@ class PerPost extends BaseController
         $postData = Post::published()->slug($slug)->first(); 
         $postFeed = $this->corcel->getAllPost('berita');
         $artikelFeed = $this->corcel->getAllPost('artikel');
-        $author = User::find($postData->post_author);
-        //dd($postData->updated_at->date);
+
         if($postData){
+            $author = User::find($postData->post_author);
             $data = ['postdata'=> $postData,'post_author'=>$author,'postFeed'=>$postFeed, 'artikelFeed'=>$artikelFeed];
             return view('pages/posts/post',$data);
         }else{

@@ -54,6 +54,7 @@
   <script type="text/javascript">
   window.$crisp=[];
   window.CRISP_WEBSITE_ID="7c80e45d-0b3b-4137-92d4-4e0e35dad9f5";
+  $crisp.push(["safe", true]);
   $crisp.push(["set", "message:text", ["Hi! I'd like to get help."]]);
   (function () {
     d = document;

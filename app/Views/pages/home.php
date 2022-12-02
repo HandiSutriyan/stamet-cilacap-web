@@ -117,26 +117,29 @@
 
         <div id="carouselExampleCaptions" class="carousel slide mb-0" data-bs-ride="true">
           <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active width="100%" height="100%"" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
-            
+          <?php for($i=0;$i <= sizeof($featured);$i++):?>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?=$i?>" class="active width="100%" height="100%"" aria-current="true" aria-label="Slide <?=$i?>"></button>
+          <?php endfor; ?>
           </div>
-          <div class="carousel-inner">
+          <div class="carousel-inner" role="listbox">
             <?php 
             $i = 0;
             foreach($featured as $ft):
               if($ft->main_category != "Peringatan Dini" && $ft->main_category != "Uncategorized"):
             ?>
-            <div class="carousel-item <?= $i==0 ? 'active':''?>">
-              <a href="<?= base_url('post/'.$ft->slug) ?>"> 
-                <img src="<?= $ft->thumbnail == null ? base_url('assets/img/no-image.png'):$ft->thumbnail ?>" class="d-block w-100 tales" alt="berita1">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5 class="post-title"><b><?= $ft->post_title ?></b></h5>
-                  <span class="post-content"><?= $ft->post_excerpt ?></span> 
-                </div>
-              </a>
+            <div class="carousel-item <?= $i==0 ? 'active':''?>" >
+            <div class="carousel-container">
+              <div class="container">
+                <a href="<?= base_url('post/'.$ft->slug) ?>"> 
+                <div class="carousel-filter"></div>
+                  <img src="<?= $ft->thumbnail == null ? base_url('assets/img/no-image.png'):$ft->thumbnail ?>" class="d-block w-100 tales" alt="berita1">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5 class="post-title"><b><?= $ft->post_title ?></b></h5>
+                    <span class="post-content"><?= $ft->post_excerpt ?></span> 
+                  </div>
+                </a>
+              </div>
+            </div>
             </div>
             <?php 
               endif;
