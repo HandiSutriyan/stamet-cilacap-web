@@ -759,19 +759,9 @@ section {
   box-shadow: #ddd -1px 2px 1px;
 }
 
-.gempabumi-detail {
-  font-size: 14px;
-  font-family: "Roboto Slab", sans-serif;
-}
-
 .gempabumi-detail.no-bot,
 .gempabumi-detail.no-bot li:last-child {
   margin-bottom: 0;
-}
-
-.gempabumi-detail {
-  font-size: 14px;
-  font-family: "Roboto Slab", sans-serif;
 }
 
 .list-unstyled {
@@ -902,14 +892,6 @@ a.more {
 
 .gempabumi-home-bg {
   min-height: 313px;
-}
-
-.gempabumi-side-bg {
-}
-
-.gempabumi-detail {
-  font-size: 14px;
-  font-family: "Roboto Slab", sans-serif;
 }
 
 .gempabumi-detail li {
@@ -1200,6 +1182,7 @@ html[lang="en"] .gempabumi-detail .koordinat:before {
 .peringatan-dini-home .clearfix {
   display: inline-flex;
   flex-direction: row;
+  padding: 10px;
 }
 .peringatan-dini-home-head {
   background: #ed7b01;
@@ -1208,7 +1191,7 @@ html[lang="en"] .gempabumi-detail .koordinat:before {
   overflow: hidden;
   box-shadow: #ddd -1px 2px 1px;
   min-height: 130px;
-  min-width: 130px;
+  min-width: 100px;
   padding: 20px;
 }
 .peringatan-dini-home h4 {

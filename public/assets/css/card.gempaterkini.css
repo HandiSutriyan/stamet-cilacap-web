@@ -22,11 +22,6 @@
   margin-bottom: 0;
 }
 
-.gempabumi-detail {
-  font-size: 14px;
-  font-family: "Roboto Slab", sans-serif;
-}
-
 .list-unstyled {
   padding-left: 0;
   list-style: none;
@@ -155,14 +150,6 @@ a.more {
 
 .gempabumi-home-bg {
   min-height: 313px;
-}
-
-.gempabumi-side-bg {
-}
-
-.gempabumi-detail {
-  font-size: 14px;
-  font-family: "Roboto Slab", sans-serif;
 }
 
 .gempabumi-detail li {

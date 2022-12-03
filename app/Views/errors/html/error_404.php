@@ -46,7 +46,7 @@
         <?php if (ENVIRONMENT !== 'production') : ?>
             <?= nl2br(esc($message)) ?>
         <?php else : ?>
-            Sorry! Cannot seem to find the page you were looking for.
+           <i>Sorry! Cannot seem to find the page you were looking for.</i> 
         <?php endif ?>
     </p>
     <a href="<?= base_url() ?>" class="btn btn-primary mt-0">Beranda</a>

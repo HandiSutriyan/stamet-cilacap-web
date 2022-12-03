@@ -50,8 +50,8 @@ function renderQuakeCard(quakeData = EWS_DATA) {
   const data = quakeData.Infogempa.gempa;
   const CardLayout = document.querySelector(".card-gempa");
   const html = `
-    <div class="row">
-                  <div class="col-md-6 col-sm-12 text-center mb-2">
+                <div class="row">
+                  <div class="col-md-5 col-sm-12 text-center mb-2">
                     <a href="https://ews.bmkg.go.id/tews/data/${
                       data.Shakemap
                     }" class="fancybox img-hover-v1" rel="gallery1" title="Gempabumi Terkini">
@@ -60,7 +60,7 @@ function renderQuakeCard(quakeData = EWS_DATA) {
                     }" alt="gempa terkini" width="200">
                     </a>
                   </div>
-                      <div class="col-md-6 col-sm-12 gempabumi-detail no-padding">
+                      <div class="col-md-7 col-sm-12 gempabumi-detail no-padding">
                         <ul class="list-unstyled">
                           <li><span class="waktu"><b>${data.Tanggal}, ${
     data.Jam
@@ -79,19 +79,19 @@ function renderQuakeCard(quakeData = EWS_DATA) {
                 </div>
                 <div class="row">
                   <div class="col-md-12 gempabumi-detail no-padding mt-2">
-                  <ul class="list-unstyled">
-                  <li><span class="ic lokasi"></span>${
-                    data.Wilayah
-                  } (${Math.round(
+                    <ul class="list-unstyled">
+                    <li><span class="ic lokasi"></span>${
+                      data.Wilayah
+                    } (${Math.round(
     calculateDistance(data.Coordinates)
   )} km dari Kab. Cilacap)</li>
-                  <li><span class="ic dirasakan"></span>Dirasakan MMI: ${
-                    data.Dirasakan
-                  }</li>
-                  <li><a class="more" href="https://www.bmkg.go.id/gempabumi-dirasakan.html">Selengkapnya →</a></li>
-                </ul>
-                  </div>
+                    <li><span class="ic dirasakan"></span>Dirasakan MMI: ${
+                      data.Dirasakan
+                    }</li>
+                    <li><a class="more" href="https://www.bmkg.go.id/gempabumi-dirasakan.html">Selengkapnya →</a></li>
+                  </ul>
                 </div>
+              </div>
     `;
   CardLayout.innerHTML = html;
 }
