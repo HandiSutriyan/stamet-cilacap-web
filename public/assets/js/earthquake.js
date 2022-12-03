@@ -54,7 +54,7 @@ function renderQuakeCard(quakeData = EWS_DATA) {
                   <div class="col-md-5 col-sm-12 text-center mb-2">
                     <a href="https://ews.bmkg.go.id/tews/data/${
                       data.Shakemap
-                    }" class="fancybox img-hover-v1" rel="gallery1" title="Gempabumi Terkini">
+                    }" class="fancybox img-hover-v1" rel="gallery1" title="Gempabumi Terkini" target="_blank">
                     <img class="img img-responsive img-fluid" src="https://ews.bmkg.go.id/tews/data/${
                       data.Shakemap
                     }" alt="gempa terkini" width="200">
