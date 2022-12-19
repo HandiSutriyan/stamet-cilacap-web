@@ -1,6 +1,8 @@
 const STORAGE_KEY = "FORECAST-DATA";
+// const FORECAST_URL =
+//   "https://api-cuaca-karimun.netlify.app/.netlify/functions/api/cuaca?kab=Kab.%20Cilacap";
 const FORECAST_URL =
-  "https://api-cuaca-karimun.netlify.app/.netlify/functions/api/cuaca?kab=Kab.%20Cilacap";
+  "https://cuaca-kecamatan-api.netlify.app/.netlify/functions/api/kab.%20cilacap/cuaca";
 let cur_loc = new URL(window.location.href).pathname;
 
 let FORECAST_DATA = [];
@@ -73,18 +75,18 @@ function getDetail() {
     fdata.forEach((item) => {
       if (item.kecamatan == param) {
         item.cuaca.forEach((dcuaca) => {
-          let datetime = dcuaca.$.date;
+          let datetime = dcuaca.date;
           let now = getForecastClock(datetime.split(" "));
           if (datetime.split(" ")[0] == now.date) {
             let html = `
             <tr>
               <th scope="row">${datetime}</th>
-              <td><img src="https://www.bmkg.go.id/asset/img/weather_icon/ID/${dcuaca.$.w_ket}-${now.is_am}.png" alt="${dcuaca.$.w_ket}" width="30"/></td>
-              <td>${dcuaca.$.w_ket}</td>
-              <td>${dcuaca.$.t} °C</td>
-              <td>${dcuaca.$.hu}%</td>
-              <td>${dcuaca.$.wdcard}</td>
-              <td>${dcuaca.$.ws} km/jam</td>
+              <td><img src="https://www.bmkg.go.id/asset/img/weather_icon/ID/${dcuaca.w_ket}-${now.is_am}.png" alt="${dcuaca.w_ket}" width="30"/></td>
+              <td>${dcuaca.w_ket}</td>
+              <td>${dcuaca.t} °C</td>
+              <td>${dcuaca.hu}%</td>
+              <td>${dcuaca.wdcard}</td>
+              <td>${dcuaca.ws} km/jam</td>
             </tr>
             `;
             tabelData.innerHTML += html;
@@ -103,7 +105,7 @@ function renderForecast(fdata = FORECAST_DATA) {
   forecastCard.innerHTML = "";
   fdata.forEach((item) => {
     item.cuaca.forEach((dcuaca) => {
-      let datetime = dcuaca.$.date;
+      let datetime = dcuaca.date;
       let arr_datetime = datetime.split(" ");
       let now = getForecastClock(arr_datetime);
       if (datetime == `${now.date} ${now.show}`) {
@@ -112,9 +114,9 @@ function renderForecast(fdata = FORECAST_DATA) {
           <a href="forecast?detail=${item.kecamatan}">
             <div class="f-loc"><b>${item.kecamatan}</b></div>
             <div class="f-time"> ${now.r_date} ${now.show} WIB</div>
-            <div class="f-wicon"><img src="https://www.bmkg.go.id/asset/img/weather_icon/ID/${dcuaca.$.w_ket}-${now.is_am}.png" alt="${dcuaca.$.w_ket}"/></div>
-            <div class="w-txt">${dcuaca.$.w_ket}</div>
-            <div class="f-temp">${dcuaca.$.t}°C</div>
+            <div class="f-wicon"><img src="https://www.bmkg.go.id/asset/img/weather_icon/ID/${dcuaca.w_ket}-${now.is_am}.png" alt="${dcuaca.w_ket}"/></div>
+            <div class="w-txt">${dcuaca.w_ket}</div>
+            <div class="f-temp">${dcuaca.t}°C</div>
           </a>
         </div>
         `;
