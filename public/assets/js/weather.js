@@ -1,6 +1,4 @@
 const STORAGE_KEY = "FORECAST-DATA";
-// const FORECAST_URL =
-//   "https://api-cuaca-karimun.netlify.app/.netlify/functions/api/cuaca?kab=Kab.%20Cilacap";
 const FORECAST_URL =
   "https://cuaca-kecamatan-api.netlify.app/.netlify/functions/api/kab.%20cilacap/cuaca";
 let cur_loc = new URL(window.location.href).pathname;
